@@ -1,0 +1,51 @@
+@use "./variables";
+@use "./mixins";
+
+#about {
+  background: linear-gradient(
+    180deg,
+    variables.$parchment 0%,
+    rgba(242, 233, 228, 0.7) 100%
+  );
+  padding: variables.$spacing-2xl 0;
+  @include mixins.section-padding-responsive;
+
+  h2 {
+    margin-bottom: variables.$spacing-xl;
+    font-weight: 800;
+    color: variables.$space-indigo;
+    font-size: 2.5rem;
+    @include mixins.fade-in-up;
+    animation-delay: 0.2s;
+  }
+
+  p {
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: variables.$dusty-grape;
+    @include mixins.fade-in-up;
+    animation-delay: 0.4s;
+    background: variables.$white;
+    padding: variables.$spacing-lg;
+    border-radius: 12px;
+    border-left: 4px solid variables.$lilac-ash;
+    box-shadow: 0 4px 12px rgba(34, 34, 59, 0.08);
+    transition: all 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 8px 24px rgba(34, 34, 59, 0.15);
+      transform: translateX(4px);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  #about h2 {
+    font-size: 2rem;
+  }
+
+  #about p {
+    font-size: 1rem;
+    padding: variables.$spacing-md;
+  }
+}

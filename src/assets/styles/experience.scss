@@ -1,0 +1,111 @@
+@use "./variables";
+@use "./mixins";
+
+#experience {
+  background: variables.$parchment;
+  @include mixins.section-padding-responsive;
+  padding: variables.$spacing-2xl 0;
+
+  h2 {
+    color: variables.$space-indigo;
+    font-weight: 800;
+    margin-bottom: variables.$spacing-xl;
+    font-size: 2.5rem;
+  }
+
+  .timeline {
+    background: variables.$white;
+    padding: variables.$spacing-lg;
+    border-radius: 18px;
+    box-shadow: 0 8px 28px rgba(34, 34, 59, 0.08);
+    margin-bottom: variables.$spacing-lg;
+    border-left: 4px solid variables.$lilac-ash;
+    transition: all 0.4s ease;
+    position: relative;
+    @include mixins.fade-in-up;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: variables.$lilac-ash;
+      border-radius: 50%;
+      top: variables.$spacing-lg;
+      left: -10px;
+      box-shadow: 0 0 0 4px variables.$parchment, 0 0 0 6px variables.$lilac-ash;
+    }
+
+    &:hover {
+      box-shadow: 0 16px 42px rgba(34, 34, 59, 0.14);
+      transform: translateX(6px);
+      border-left-color: variables.$almond-silk;
+
+      h4 {
+        color: variables.$dusty-grape;
+      }
+    }
+
+    .timeline-header {
+      margin-bottom: variables.$spacing-md;
+    }
+
+    h4 {
+      color: variables.$space-indigo;
+      font-weight: 700;
+      margin-bottom: 10px;
+      font-size: 1.35rem;
+      transition: color 0.3s ease;
+    }
+
+    .timeline-meta,
+    .timeline-duration {
+      margin-bottom: 8px;
+      color: variables.$dusty-grape;
+      font-size: 0.98rem;
+    }
+
+    .timeline-duration {
+      color: variables.$lilac-ash;
+      font-weight: 600;
+    }
+
+    ul {
+      margin-top: variables.$spacing-md;
+      list-style: none;
+      padding: 0;
+
+      li {
+        margin-bottom: 12px;
+        color: variables.$dusty-grape;
+        padding-left: variables.$spacing-lg;
+        position: relative;
+        line-height: 1.7;
+
+        &::before {
+          content: "✓";
+          position: absolute;
+          left: 0;
+          top: 2px;
+          color: variables.$almond-silk;
+          font-weight: bold;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  #experience h2 {
+    font-size: 2rem;
+  }
+
+  #experience .timeline {
+    padding: variables.$spacing-md;
+
+    h4 {
+      font-size: 1.2rem;
+    }
+  }
+}

@@ -1,0 +1,88 @@
+@use "./variables";
+@use "./mixins";
+
+#contact {
+  background: linear-gradient(180deg, variables.$white 0%, variables.$parchment 100%);
+  @include mixins.section-padding-responsive;
+  padding: variables.$spacing-2xl 0;
+
+  h2 {
+    color: variables.$space-indigo;
+    font-weight: 800;
+    margin-bottom: variables.$spacing-xl;
+    font-size: 2.5rem;
+  }
+
+  form {
+    max-width: 700px;
+    margin: auto;
+    @include mixins.fade-in-up;
+
+    .form-group {
+      margin-bottom: variables.$spacing-lg;
+
+      .form-label {
+        color: variables.$space-indigo;
+        font-weight: 600;
+        margin-bottom: variables.$spacing-md;
+        font-size: 1rem;
+      }
+
+      .form-control {
+        padding: 14px variables.$spacing-md;
+        border: 2px solid variables.$parchment;
+        border-radius: 8px;
+        background: variables.$white;
+        color: variables.$dusty-grape;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(34, 34, 59, 0.05);
+
+        &:focus {
+          border-color: variables.$lilac-ash;
+          box-shadow: 0 0 0 0.2rem rgba(154, 140, 152, 0.15);
+          outline: none;
+          background: rgba(242, 233, 228, 0.3);
+        }
+
+        &::placeholder {
+          color: variables.$lilac-ash;
+        }
+      }
+    }
+
+    button {
+      width: 100%;
+      padding: 14px variables.$spacing-lg;
+      background: linear-gradient(135deg, variables.$space-indigo, variables.$dusty-grape);
+      color: variables.$parchment;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      box-shadow: 0 4px 12px rgba(34, 34, 59, 0.2);
+
+      &:hover {
+        background: linear-gradient(135deg, variables.$dusty-grape, variables.$lilac-ash);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 24px rgba(34, 34, 59, 0.3);
+      }
+
+      &:active {
+        transform: translateY(-1px);
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  #contact h2 {
+    font-size: 2rem;
+  }
+
+  #contact form .form-group .form-control {
+    padding: 12px variables.$spacing-md;
+  }
+}

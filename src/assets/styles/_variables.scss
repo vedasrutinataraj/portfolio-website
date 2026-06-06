@@ -1,0 +1,37 @@
+// Theme Colors - Sophisticated Palette
+$space-indigo: #22223b;
+$dusty-grape: #4a4e69;
+$lilac-ash: #9a8c98;
+$almond-silk: #c9ada7;
+$parchment: #f2e9e4;
+
+// Primary Colors
+$primary-color: $space-indigo;
+$secondary-color: $dusty-grape;
+$accent-color: $lilac-ash;
+$light-accent: $almond-silk;
+$background-color: $parchment;
+
+// Text Colors
+$text-color: $space-indigo;
+$text-light: $dusty-grape;
+$text-lighter: $lilac-ash;
+
+// Utility Colors
+$white: #ffffff;
+$border-color: $almond-silk;
+$shadow-color: rgba(34, 34, 59, 0.15);
+
+// Spacing
+$navbar-height: 70px;
+$spacing-xs: 8px;
+$spacing-sm: 16px;
+$spacing-md: 24px;
+$spacing-lg: 32px;
+$spacing-xl: 48px;
+$spacing-2xl: 64px;
+
+// Transitions
+$transition: all 0.3s ease;
+$transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);

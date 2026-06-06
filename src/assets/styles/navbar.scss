@@ -1,0 +1,71 @@
+@use "./variables";
+@use "./mixins";
+
+.portfolio-navbar {
+  background: rgba(34, 34, 59, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 16px rgba(34, 34, 59, 0.1);
+  transition: all 0.3s ease;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  &:hover {
+    box-shadow: 0 8px 24px rgba(34, 34, 59, 0.15);
+  }
+
+  .navbar-brand {
+    color: variables.$parchment !important;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: variables.$almond-silk !important;
+      text-shadow: 0 0 10px rgba(201, 173, 167, 0.3);
+    }
+  }
+
+  .nav-link {
+    color: variables.$parchment !important;
+    margin-left: 20px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background: linear-gradient(135deg, variables.$almond-silk, variables.$lilac-ash);
+      transition: width 0.3s ease;
+    }
+
+    &:hover {
+      color: variables.$almond-silk !important;
+
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+
+  .navbar-toggler {
+    border-color: rgba(242, 233, 228, 0.5);
+  }
+
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(242,233,228,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-navbar .nav-link {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}

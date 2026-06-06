@@ -1,0 +1,168 @@
+@use "./variables";
+@use "./mixins";
+
+.hero-section {
+  min-height: 100vh;
+  @include mixins.flex-column;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(
+    135deg,
+    variables.$space-indigo 0%,
+    variables.$dusty-grape 50%,
+    variables.$lilac-ash 100%
+  );
+  position: relative;
+  overflow: hidden;
+  padding: variables.$spacing-xl 0;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(201, 173, 167, 0.1), transparent);
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -30%;
+    left: -5%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(201, 173, 167, 0.08), transparent);
+    border-radius: 50%;
+    animation: float 8s ease-in-out infinite reverse;
+  }
+
+  color: variables.$parchment;
+  z-index: 1;
+
+  h1 {
+    font-size: 4.5rem;
+    font-weight: 800;
+    margin-bottom: variables.$spacing-md;
+    @include mixins.fade-in-up;
+    letter-spacing: -1px;
+    line-height: 1.2;
+    animation-delay: 0.1s;
+  }
+
+  h3 {
+    margin-top: variables.$spacing-md;
+    font-size: 1.5rem;
+    color: variables.$almond-silk;
+    @include mixins.fade-in-up;
+    animation-delay: 0.3s;
+    font-weight: 500;
+  }
+
+  p {
+    margin-top: variables.$spacing-lg;
+    font-size: 1.2rem;
+    max-width: 600px;
+    line-height: 1.6;
+    @include mixins.fade-in-up;
+    animation-delay: 0.5s;
+    opacity: 0.95;
+  }
+
+  .hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: variables.$spacing-2xl;
+    flex-wrap: wrap;
+  }
+
+  .hero-text {
+    flex: 1 1 480px;
+    min-width: 280px;
+  }
+
+  .hero-image {
+    flex: 1 1 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 280px;
+    padding-top: variables.$spacing-lg;
+  }
+
+  .hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 24px;
+    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.18);
+  }
+
+  .hero-buttons {
+    margin-top: variables.$spacing-xl;
+    display: flex;
+    gap: variables.$spacing-lg;
+    @include mixins.fade-in-up;
+    animation-delay: 0.7s;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    button {
+      padding: 14px 32px;
+      font-size: 1rem;
+      font-weight: 600;
+      border: 2px solid variables.$almond-silk;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      background: transparent;
+      color: variables.$almond-silk;
+
+      &:first-child {
+        background: variables.$almond-silk;
+        color: variables.$space-indigo;
+
+        &:hover {
+          background: variables.$parchment;
+          transform: translateY(-3px);
+          box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+        }
+      }
+
+      &:hover {
+        background: rgba(201, 173, 167, 0.1);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(201, 173, 167, 0.2);
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+
+    .hero-buttons {
+      gap: variables.$spacing-md;
+
+      button {
+        padding: 12px 24px;
+        font-size: 0.95rem;
+      }
+    }
+  }
+}

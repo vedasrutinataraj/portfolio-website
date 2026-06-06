@@ -1,0 +1,83 @@
+@use "./variables";
+@use "./mixins";
+
+#projects {
+  background: variables.$white;
+  @include mixins.section-padding-responsive;
+  padding: variables.$spacing-2xl 0;
+
+  h2 {
+    color: variables.$space-indigo;
+    font-weight: 800;
+    margin-bottom: variables.$spacing-xl;
+    font-size: 2.5rem;
+  }
+
+  .card {
+    border: 2px solid variables.$parchment;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+    border-radius: 12px;
+    background: linear-gradient(135deg, variables.$white, rgba(242, 233, 228, 0.3));
+    position: relative;
+    @include mixins.card-shadow;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, variables.$space-indigo, variables.$lilac-ash);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s ease;
+    }
+
+    &:hover {
+      transform: translateY(-16px) scale(1.02);
+      box-shadow: 0 20px 48px rgba(34, 34, 59, 0.2);
+      border-color: variables.$almond-silk;
+
+      &::before {
+        transform: scaleX(1);
+      }
+
+      .card-title {
+        color: variables.$dusty-grape;
+      }
+    }
+
+    .card-title {
+      color: variables.$space-indigo;
+      font-weight: 700;
+      font-size: 1.3rem;
+      transition: all 0.3s ease;
+    }
+
+    .card-text {
+      min-height: 80px;
+      color: variables.$dusty-grape;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .card-body {
+      padding: variables.$spacing-lg;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  #projects h2 {
+    font-size: 2rem;
+  }
+
+  #projects .card {
+    &:hover {
+      transform: translateY(-8px);
+    }
+  }
+}
