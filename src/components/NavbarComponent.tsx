@@ -42,7 +42,7 @@ const NavbarComponent = () => {
             </Nav.Link>
 
             <Nav.Link
-              href="https://github.com/"
+              href="https://github.com/vedasrutinataraj/portfolio-website"
               target="_blank"
               rel="noreferrer"
               title="GitHub"
@@ -53,7 +53,7 @@ const NavbarComponent = () => {
             </Nav.Link>
 
             <Nav.Link
-              href="https://linkedin.com/"
+              href="https://www.linkedin.com/in/vedasruti-nataraj-454b3827b/"
               target="_blank"
               rel="noreferrer"
               title="LinkedIn"
