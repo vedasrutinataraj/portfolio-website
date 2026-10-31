@@ -1,5 +1,4 @@
 import { Container } from "react-bootstrap";
-import heroImage from "../assets/images/hero.png";
 
 const Hero = () => {
   return (
